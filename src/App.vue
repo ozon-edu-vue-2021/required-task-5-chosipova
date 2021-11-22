@@ -5,9 +5,6 @@
 </template>
 
 <script>
-// import Showcase from "@/components/Showcase/Showcase.vue";
-// import Basket from "@/components/Basket/Basket.vue";
-
 export default {
   name: "App",
   mounted() {

@@ -1,7 +1,10 @@
 <template>
   <div class="position-relative">
     <FixedBasketCard />
-    <div class="row row-cols-1 row-cols-md-3 g-4 align-items-start">
+    <div v-if="error.length" class="col-md-7">
+      <h4>{{ error }}</h4>
+    </div>
+    <div v-else class="row row-cols-1 row-cols-md-3 g-4 align-items-start">
       <Good
         v-for="item in goods"
         :key="`good${item.id}`"
@@ -18,7 +21,7 @@
 <script>
 import Good from "@/components/Good/Good.vue";
 import FixedBasketCard from "@/components/Basket/FixedBasketCard.vue";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   components: {
@@ -27,6 +30,7 @@ export default {
   },
   computed: {
     ...mapState(["goods", "basket"]),
+    ...mapGetters(["error"]),
   },
 };
 </script>
